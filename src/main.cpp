@@ -89,8 +89,6 @@ int main(int argc, char** argv) {
 	SDL_N3DSKeyBind(KEY_CPAD_LEFT|KEY_CSTICK_LEFT, SDLK_LEFT);
 	SDL_N3DSKeyBind(KEY_CPAD_RIGHT|KEY_CSTICK_RIGHT, SDLK_RIGHT);
     
-	SDL_N3DSKeyBind(KEY_START, SDLK_p);
-	
     Audio* gpAudio = new Audio();
     Jeu* gpJeu = new Jeu(gpAudio);
     Carte* gpCarte = new Carte(gpJeu);
