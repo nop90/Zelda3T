@@ -113,57 +113,67 @@ int main(int argc, char** argv) {
         
         switch (gpKeyboard->getMode()) {
             case 0 : //jeu normal
-               gpJeu->draw(gpScreen2); 
-			   gpGenerique->drawBackground(gpScreen2);
-			   gpJeu->drawMenu(gpScreen2);
-			   break;
+				gpJeu->draw(gpScreen2); 
+			    gpGenerique->drawBackground(gpScreen2);
+			    gpJeu->drawMenu(gpScreen2);
+			    break;
             case 1 : //disclamer
             case 2 : //logo
                 gpGenerique->draw(gpScreen2); break;
             case 3 : //titre
             case 14 : //générique score
+            case 28 : //image de fin
+                gpGenerique->draw(gpScreen2); break;
             case 17 : //menu d'aide 1
             case 18 : //menu d'aide 2
             case 24 : //menu d'aide 3
             case 25 : //items de troc
-            case 28 : //image de fin
-                gpGenerique->draw(gpScreen2); break;
+                gpJeu->draw(gpScreen2); 
+                gpGenerique->draw(gpScreen2); 
+			    gpJeu->drawMenu(gpScreen2);
+				break;
             case 4 : //selection
                 gpGenerique->drawSelection(gpScreen2, gpKeyboard->getLigne(), 
-                    gpKeyboard->getColonne()); break;
+                gpKeyboard->getColonne()); break;
             case 6 : //options
                 gpGenerique->drawOption(gpScreen2, gpKeyboard->getLigneOption(),
                 gpKeyboard->getVolume()/8, gpKeyboard->getVolson()/8); break;
             case 7 : //charger partie
                 gpGenerique->drawCharger(gpScreen2, gpKeyboard->getLigne(), 
-                    gpKeyboard->getLigneVal()); break;
+                gpKeyboard->getLigneVal()); break;
             case 8 : //générique intro
                 gpGenerique->drawIntro(gpScreen2, gpKeyboard->getIntro()); break;
             case 9 : //effacer partie
                 gpGenerique->drawEffacerSave(gpScreen2, gpKeyboard->getLigne(), 
-                    gpKeyboard->getLigneVal()); break;
+                gpKeyboard->getLigneVal()); break;
             case 10 : //générique début chez link
                 gpGenerique->drawDebut(gpScreen2); break;
             case 11 : //générique fin
                 gpGenerique->drawFin(gpScreen2); break;
             case 12 : //carte
             case 22 : //carte téléportation
-               gpJeu->draw(gpScreen2); 
-               gpCarte->draw(gpScreen2); 
-			   gpJeu->drawMenu(gpScreen2);
-			   break;
+                gpJeu->draw(gpScreen2); 
+                gpCarte->draw(gpScreen2); 
+			    gpJeu->drawMenu(gpScreen2);
+			    break;
             case 13 : //encyclopédie des monstres
-                gpEncyclopedie->draw(gpScreen2); break;
+                gpJeu->draw(gpScreen2); 
+                gpEncyclopedie->draw(gpScreen2); 
+			    gpJeu->drawMenu(gpScreen2);
+		 		break;
             case 15 : //records
             case 19 : //rang 100%
             case 20 : //rang ultime
             case 21 : //rang de rapidité
                 gpGenerique->drawRecord(gpScreen2, gpKeyboard->getLigneRecord(),
-                    gpKeyboard->getColonneRecord()); break;
+                gpKeyboard->getColonneRecord()); break;
             case 16 : //effacer record
                 gpGenerique->drawEffacer(gpScreen2, gpKeyboard->getLigneVal()); break;
             case 23 : //encyclopédie des poissons
-                gpPoissons->draw(gpScreen2); break;
+                gpJeu->draw(gpScreen2); 
+                gpPoissons->draw(gpScreen2); 
+			    gpJeu->drawMenu(gpScreen2);
+				break;
             case 26 : //générique vers présent
             case 27 : //générique vers passé
                 gpGenerique->drawToPresent(gpScreen2); break;

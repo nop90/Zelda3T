@@ -32,6 +32,10 @@ menu(false), text(false), vueHorz(0), vueVert(0) {
     gpPiege = NULL; gpPnj = NULL; gpJoueur = NULL; gpMonde = NULL; gpMenu = NULL;
     gpStatut = NULL;
     gpTexte = new Texte(this);
+	
+	dark= IMG_Load("romfs:/images/logos/fin.png");
+	SDL_SetAlpha(dark, SDL_SRCALPHA, 128);
+
 
 }
 
@@ -48,6 +52,8 @@ Jeu::~Jeu() {
     delete gpEnnemi;
     delete gpPiege;
     delete gpPnj;
+	SDL_FreeSurface(imageObjets);
+	SDL_FreeSurface(dark);
 }
 
 void Jeu::init(int save) {
@@ -94,7 +100,64 @@ void Jeu::init(int save) {
     if (isDonjon()) ecrit(927+zone-46);
     else if (zone==57) ecrit(1036);
 	
-	// try nop90
+	gpMenu->menuIn();
+}
+
+void Jeu::reinit(int save) {
+    zone=79; zoneOld=-1;
+    delete gpProjectile;
+    gpProjectile = new Projectile(this, 0, N, 0, 0, 0);
+    delete gpObjet;
+    gpObjet = new Objet(this, 0, 0, 0, 0);
+    delete gpSnipe;
+    gpSnipe = new Snipe(this, 0, 0, 0, 0, 0);
+    delete gpCaisse;
+    gpCaisse = new Caisse(this, 0, 0, 0);
+    delete gpEnnemi;
+    gpEnnemi = new Ennemi(this, 0, 0, 0, true);
+    delete gpPiege;
+    gpPiege = new Ennemi(this, 0, 0, 0, true);
+    delete gpPnj;
+    gpPnj = new Pnj(this, 0, 0, 0, 0);
+    delete gpJoueur;
+    gpJoueur = new Joueur(this, save);
+    delete gpMonde;
+    gpMonde = new Monde(this);
+    delete gpMenu;
+    gpMenu = new Menu(this);
+    //gpTexte = new Texte(this);
+    delete gpStatut;
+    gpStatut = new Statut(this);
+    //gpAudio->playMusic(zone);
+    
+    gpProjectileOld = NULL;
+    gpObjetOld = NULL;
+    gpSnipeOld = NULL;
+    gpCaisseOld = NULL;
+    gpEnnemiOld = NULL;
+    gpPiegeOld = NULL;
+    gpPnjOld = NULL;
+    
+    if ((zone == 18 || zone == 19) && 
+    ((gpJoueur->getEpee()==0 && !gpJoueur->hasObjet(O_OCARINA)) 
+    || (gpJoueur->getEpee()==5 && zone == 19 
+    && !gpJoueur->getEnnemi(50)))) 
+        gpAudio->playMusic(218);
+    else if (zone == 137 && gpJoueur->nbCristaux()>=3 && gpJoueur->hasObjet(O_TROC4)>=6 
+    && !gpJoueur->hasCristal(3)) gpAudio->playMusic(218);
+    else if (zone == 4 && gpJoueur->getCoffre(15,2)) gpAudio->playMusic(219);
+    else if (/*isDehors() && */gpJoueur->getAvancement()>=PORTAIL_PRE_PRESENT_UTILISE
+    && gpJoueur->getAvancement()<PORTAIL_PRE_PRESENT_FERME
+    && getEpoque()==T_PRESENT) gpAudio->playMusic(199);
+    else if (zone==10 && gpJoueur->nbCristaux()>=3 && gpJoueur->hasObjet(O_TROC4)>=6
+        && !gpJoueur->hasCristal(3)) gpAudio->playMusic(218);
+    else if ((zone == 111 || zone == 114 || zone == 124) 
+        && gpJoueur->nbEnnemis() >= 87) gpAudio->playMusic(218);
+    else gpAudio->playMusic(zone);
+    
+    if (isDonjon()) ecrit(927+zone-46);
+    else if (zone==57) ecrit(1036);
+	
 	gpMenu->menuIn();
 }
 
@@ -275,7 +338,11 @@ void Jeu::draw(SDL_Surface* screen) {
 		SDL_FillRect(screen, &dst, SDL_MapRGB(screen->format,0,0,0));
 	}
 */
+
     if (text && !transition) gpTexte->draw(screen);
+
+	if (stop && ! text && !transition) SDL_BlitSurface(dark, NULL, screen, NULL);
+	
 }
 
 void Jeu::drawMenu(SDL_Surface* screen) {
@@ -286,6 +353,10 @@ void Jeu::drawMenu(SDL_Surface* screen) {
 //	}
 }
 
+void Jeu::darken(SDL_Surface* screen) {
+    
+	SDL_BlitSurface(dark, NULL, screen, NULL);
+}
 
 Joueur* Jeu::getJoueur() {
     return gpJoueur;

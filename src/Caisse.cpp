@@ -29,7 +29,14 @@ pousseX(0), pousseY(0), vitesse(1), direction(N), reste(r), reviable(revie), rde
     if (id == 6) vitesse=5;
 }
 
-Caisse::~Caisse() {}
+Caisse::~Caisse() {
+	if(suivant)	{
+		Caisse* temp;
+		temp = (Caisse*)suivant;
+		suivant=NULL;
+		delete temp;
+	}
+}
 
 void Caisse::draw(SDL_Surface* gpScreen) {
     int phg[2];

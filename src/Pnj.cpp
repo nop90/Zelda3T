@@ -30,7 +30,14 @@ special2(0) {
     }
 }
 
-Pnj::~Pnj() {}
+Pnj::~Pnj() {
+	if(suivant)	{
+		Pnj* temp;
+		temp = (Pnj*)suivant;
+		suivant=NULL;
+		delete temp;
+	}
+}
 
 bool Pnj::isActif() {
     Monde* gpMonde = gpJeu->getMonde();

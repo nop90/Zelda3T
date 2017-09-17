@@ -22,6 +22,7 @@ Encyclopedie::~Encyclopedie() {
     SDL_FreeSurface(image);
     SDL_FreeSurface(imageCadre);
     delete gpEnnemi;
+	delete gpPnj; //nop90 added
 }
 
 void Encyclopedie::draw(SDL_Surface* gpScreen) {

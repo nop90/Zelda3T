@@ -14,7 +14,8 @@ Listable::Listable() : suivant(0), id(0) {
 }
 
 Listable::~Listable() {
-    delete suivant;
+	if(suivant) delete suivant;
+	suivant = 0;
 }
 
 int Listable::size() {

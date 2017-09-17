@@ -68,6 +68,7 @@ class Keyboard {
         int tmptp;
         int tmpl;
         int tmpi;
+        int tmpfs;
         int ligne;
         int colonne;
         int save[3];

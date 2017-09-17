@@ -124,7 +124,13 @@ rebond(false), element(FEU) {
 }
 
 Snipe::~Snipe() {
-    SDL_FreeSurface(image);
+    if(image) SDL_FreeSurface(image);
+	if(suivant)	{
+		Snipe* temp;
+		temp = (Snipe*)suivant;
+		suivant=NULL;
+		delete temp;
+	}
 }
 
 void Snipe::draw(SDL_Surface* gpScreen) {

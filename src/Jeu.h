@@ -33,8 +33,10 @@ class Jeu {
         Jeu(Audio* audio);
         ~Jeu();
         void init(int save);
+        void reinit(int save);
         void draw(SDL_Surface* screen);
         void drawMenu(SDL_Surface* screen);
+        void darken(SDL_Surface* screen);
          Joueur* getJoueur();
         Monde* getMonde();
         Audio* getAudio();
@@ -185,6 +187,7 @@ class Jeu {
         Pnj* gpPnjOld;
         
         SDL_Surface* imageObjets;
+        SDL_Surface* dark;
 };
 
 #endif  // Jeu.h

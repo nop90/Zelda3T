@@ -476,7 +476,7 @@ void Menu::drawInventaire(SDL_Surface* gpScreen) {
     
     Joueur* gpJoueur = gpJeu->getJoueur();
     
-    gpJeu->affiche(gpScreen, "X", 20-dec,MENUOFF+20);
+    gpJeu->affiche(gpScreen, "Y", 20-dec,MENUOFF+20);
 
     SDL_Rect src;
     SDL_Rect dst;

@@ -45,6 +45,13 @@ special1(0), special2(0), persistent(p), type_att(ENNEMI), dist(16) {
 
 Ennemi::~Ennemi() {
     if (!chargeIm) image = NULL;
+	if(suivant)	{
+		Ennemi* temp;
+		temp = (Ennemi*)suivant;
+		suivant=NULL;
+		delete temp;
+	}
+
     delete zonesAttaques;
     delete zonesVulnerables;
 }

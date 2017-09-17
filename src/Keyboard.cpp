@@ -118,9 +118,9 @@ int Keyboard::gererClavier() {
 void Keyboard::toggleFullScreen() {
     gFullScreen = (gFullScreen ? 0 : SDL_FULLSCREEN);
 //    gFullScreen ? SDL_ShowCursor(SDL_DISABLE) : SDL_ShowCursor(SDL_ENABLE);
-    SDL_ShowCursor(SDL_DISABLE);
-    gpScreen = SDL_SetVideoMode(320, 480, 32, SDL_HWSURFACE
-                                    |SDL_DOUBLEBUF|gFullScreen);
+//    SDL_ShowCursor(SDL_DISABLE);
+//    gpScreen = SDL_SetVideoMode(320, 480, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|gFullScreen);
+	SDL_WM_ToggleFullScreen(gpScreen);
 }
 
 int Keyboard::isFullScreen() {
@@ -155,17 +155,30 @@ void Keyboard::pollKeys(Uint8* keys) {
     int vit;
     int avance;
     int nbdir;
+
+	if (keys[SDLK_l] && keys[SDLK_a] && tmpfs == 0 ) {
+		toggleFullScreen();
+		tmpfs = 1;
+	}
+	if (!keys[SDLK_a] && tmpfs) tmpfs=0;
+
     switch (mode) {
         case 0 :
             
-            if (keys[SDLK_l] && keys[SDLK_y]) {mode = 17; gpJeu->getGenerique()->initAide1(); 
-                gpJeu->getAudio()->playSound(1);return;}
+            if (keys[SDLK_l] && keys[SDLK_y]) {
+				mode = 17; 
+				gpJeu->showMenu(false);
+				gpJeu->setStop(true);
+				gpJeu->getGenerique()->initAide1(); 
+                gpJeu->getAudio()->playSound(1);
+				return;
+			}
  
 			if (gpJeu->getMonde()->isChangeTemps()) return;
             
             gpJoueur = gpJeu->getJoueur();
-//nop90: to fix            
-            if (keys[SDLK_l] && keys[SDLK_RETURN] && tmpt == 0 ) {
+
+            if (keys[SDLK_l] && keys[SDLK_RETURN] && !gpJeu->getText() && tmpt == 0 ) {
                 if (gpJeu->getMenu()) {
 					gpJeu->setStop(false);
 					gpJeu->setMenu(false);
@@ -616,13 +629,15 @@ void Keyboard::pollKeys(Uint8* keys) {
                 tmptp=1;
             }
             
-            if (!keys[SDLK_l] && !keys[SDLK_r] && tmptp) tmptp=0;
+            if (!keys[SDLK_l] || !keys[SDLK_r] && tmptp) tmptp=0;
             
             
             // liste poissons
             if (keys[SDLK_l] && keys[SDLK_b] && gpJoueur->hasObjet(O_POISSONS) && gpJoueur->nbPoissons() && !tmpl
             && !gpJeu->getStop() && !gpJoueur->getImmo() && gpJoueur->getVie()>0) {
                 mode = 23;
+				gpJeu->showMenu(false);
+				gpJeu->setStop(true); 
                 gpJeu->getAudio()->playSound(1);
                 gpPoissons->setPage(0);
                 gpPoissons->init();
@@ -632,16 +647,16 @@ void Keyboard::pollKeys(Uint8* keys) {
             if (!keys[SDLK_b] && tmpl) tmpl=0;
             
             // liste items troc
-//            if (keys[SDLK_i] && gpJoueur->hasObjet(O_SAC_TROC) && !tmpi
             if (keys[SDLK_l] && keys[SDLK_b] && gpJoueur->hasObjet(O_SAC_TROC) && !tmpi
             && !gpJeu->getStop() && !gpJoueur->getImmo() && gpJoueur->getVie()>0) {
                 mode = 25;
                 gpJeu->getAudio()->playSound(1);
+				gpJeu->showMenu(false);
+				gpJeu->setStop(true); 
                 gpJeu->getGenerique()->initTroc();
                 tmpi=1;
             }
             
-//            if (!keys[SDLK_i] && tmpi) tmpi=0;
             if (!keys[SDLK_b] && tmpi) tmpi=0;
             
             break;
@@ -752,7 +767,7 @@ void Keyboard::pollKeys(Uint8* keys) {
             if (keys[SDLK_a] && tmp == 0) {
                 if (ligneVal==0) {
                     mode = 0;
-                    gpJeu->init(ligne+1);
+                    gpJeu->reinit(ligne+1);
                 }
                 if (ligneVal==1) {
                     mode = 9; ligneVal=1;
@@ -815,7 +830,7 @@ void Keyboard::pollKeys(Uint8* keys) {
                 if (!gpJeu->getText()) {
                     //gpJeu->getAudio()->playSound(5);
                     //SDL_Delay(2500);
-                    mode = 0; gpJeu->init(ligne+1);
+                    mode = 0; gpJeu->reinit(ligne+1);
                     gpJeu->ecrit(1367);
                 }
                 tmp = 1;
@@ -936,6 +951,8 @@ void Keyboard::pollKeys(Uint8* keys) {
             if (keys[SDLK_a] && !tmp) {
                 mode = 0;
                 gpJeu->getAudio()->playSound(2);
+				gpJeu->showMenu(true);
+                gpJeu->setStop(false);
                 tmp=1;
             }
             if (keys[SDLK_RIGHT] && !tmp) {
@@ -948,7 +965,9 @@ void Keyboard::pollKeys(Uint8* keys) {
             if (keys[SDLK_a] && !tmp) {
                 mode = 0;
                 gpJeu->getAudio()->playSound(2);
-                tmp=1;
+				gpJeu->showMenu(true);
+                gpJeu->setStop(false);
+				tmp=1;
             }
             if (keys[SDLK_LEFT] && !tmp) {
                 mode = 17; gpJeu->getGenerique()->initAide1();
@@ -964,6 +983,8 @@ void Keyboard::pollKeys(Uint8* keys) {
             if (keys[SDLK_a] && !tmp) {
                 mode = 0;
                 gpJeu->getAudio()->playSound(2);
+				gpJeu->showMenu(true);
+                gpJeu->setStop(false);
                 tmp=1;
             }
             if (keys[SDLK_LEFT] && !tmp) {
@@ -1031,6 +1052,8 @@ void Keyboard::pollKeys(Uint8* keys) {
             if (keys[SDLK_a] && !tmp) {
                 mode = 0;
                 gpJeu->getAudio()->playSound(2);
+				gpJeu->showMenu(true);
+                gpJeu->setStop(false);
                 tmp=1;
             }
             
@@ -1051,6 +1074,8 @@ void Keyboard::pollKeys(Uint8* keys) {
             if (keys[SDLK_a] && !tmp) {
                 mode = 0;
                 gpJeu->getAudio()->playSound(2);
+				gpJeu->showMenu(true);
+                gpJeu->setStop(false);
                 tmp=1;
             }
             if (!keys[SDLK_a] && tmp) tmp=0;
