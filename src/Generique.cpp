@@ -467,52 +467,52 @@ void Generique::initAide1() {
     
     cadre(16,192+8,288,32);
     
-    gpJeu->affiche(image, "Return to the game: Enter - Next: Right", 24, 208);
+    gpJeu->affiche(image, "Return to the game: A - Next: Right", 24, 208);
     
     int ligne = 64;
     Joueur* gpJoueur = gpJeu->getJoueur();
     
-    gpJeu->affiche(image, "Read / Open / Speak : Space", 24, ligne); ligne+=16;
-    gpJeu->affiche(image, "Confirm / Pass text: Enter", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Read / Open / Speak : A", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Confirm / Pass text: A", 24, ligne); ligne+=16;
     gpJeu->affiche(image, "Move Link: Arrows", 24, ligne); ligne+=16;
     if (gpJoueur->hasObjet(O_BOTTES)) {
-        gpJeu->affiche(image, "Run: Shift hold or Caps lock", 24, ligne); 
+        gpJeu->affiche(image, "Run: R hold", 24, ligne); 
         ligne+=16;}
     if (gpJoueur->getEpee()) {
-        gpJeu->affiche(image, "Use sword: Z or W", 24, ligne); ligne+=16;
-        gpJeu->affiche(image, "Spin attack: Z or W hold then dropped", 24, ligne); 
+        gpJeu->affiche(image, "Use sword: B", 24, ligne); ligne+=16;
+        gpJeu->affiche(image, "Spin attack: hold B to charge", 24, ligne); 
         ligne+=16;}
-    gpJeu->affiche(image, "Item selection: Enter", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Item selection: L and START", 24, ligne); ligne+=16;
     if (ligne < 176)
-    gpJeu->affiche(image, "Use selected object: X", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Use selected object: Y", 24, ligne); ligne+=16;
     if (gpJoueur->hasObjet(O_GANTS)) {
-        if (ligne < 176) gpJeu->affiche(image, "Carry: C", 24, ligne); 
+        if (ligne < 176) gpJeu->affiche(image, "Carry: X", 24, ligne); 
         ligne+=16;}
     if (gpJoueur->hasObjet(O_CARTE)) {
         if (ligne < 176) 
-            gpJeu->affiche(image, "See the map: P (outside or dungeons)", 24, ligne);
+            gpJeu->affiche(image, "Open the map: START (outside or dungeons)", 24, ligne);
     } else 
         if (ligne < 176) 
-            gpJeu->affiche(image, "See the map: P (in dungeons)", 24, ligne);
+            gpJeu->affiche(image, "Open the map: START (in dungeons)", 24, ligne);
     ligne+=16;
     if (gpJoueur->hasObjet(O_ENCYCL)) {
-        if (ligne < 176) gpJeu->affiche(image, "See defeated monsters: M", 24, ligne); 
+        if (ligne < 176) gpJeu->affiche(image, "View defeated monsters: L and B", 24, ligne); 
         ligne+=16;}
     if (gpJoueur->hasObjet(O_POISSONS)) {
-        if (ligne < 176) gpJeu->affiche(image, "See fishes : L", 24, ligne); 
+        if (ligne < 176) gpJeu->affiche(image, "VIew fishes : L and B", 24, ligne); 
         ligne+=16;}
     if (gpJoueur->hasObjet(O_SAC_TROC)) {
-        if (ligne < 176) gpJeu->affiche(image, "See barter items : I", 24, ligne); 
+        if (ligne < 176) gpJeu->affiche(image, "See barter items : L and B", 24, ligne); 
         ligne+=16;}
     if (gpJoueur->hasObjet(O_MASQUE)) {
-        if (ligne < 176) gpJeu->affiche(image, "Oni Link transformation : O", 24, ligne); 
+        if (ligne < 176) gpJeu->affiche(image, "Oni Link transformation : L and X", 24, ligne); 
         ligne+=16;}
     if (ligne < 176)
-    gpJeu->affiche(image, "Look around: Ctrl and direction", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Look around: L and direction", 24, ligne); ligne+=16;
     if (ligne < 176)
-    gpJeu->affiche(image, "Enlarge / Shrink: Ctrl and Enter", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Enlarge / Shrink: L and A", 24, ligne); ligne+=16;
     if (ligne < 176)
-    gpJeu->affiche(image, "Save / Quit: Esc", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Save / Quit: SELECT", 24, ligne); ligne+=16;
     
     if (ligne >= 288) gpJeu->affiche(image, "HELP 1/3", 40, 16);
     else gpJeu->affiche(image, "HELP 1/2", 40, 16);
@@ -562,50 +562,50 @@ void Generique::initAide2() {
     if (gpJoueur->hasObjet(O_BOTTES)) ligne+=16;
     if (gpJoueur->getEpee()) ligne+=32;
     if (ligne >= 64) 
-    gpJeu->affiche(image, "Use selected object: X", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Use selected object: Y", 24, ligne); ligne+=16;
     if (gpJoueur->hasObjet(O_GANTS)) {
-        if (ligne >= 64) gpJeu->affiche(image, "Carry : C", 24, ligne); 
+        if (ligne >= 64) gpJeu->affiche(image, "Carry : X", 24, ligne); 
         ligne+=16;}
     if (gpJoueur->hasObjet(O_CARTE)) {
         if (ligne >= 64) 
-            gpJeu->affiche(image, "See the map: P (outside or dungeons)", 24, ligne);
+            gpJeu->affiche(image, "See the map: L and START (outside or dungeons)", 24, ligne);
     } else 
         if (ligne >= 64) 
-            gpJeu->affiche(image, "See the map: P (in dungeons)", 24, ligne);
+            gpJeu->affiche(image, "See the map: L and START (in dungeons)", 24, ligne);
     ligne+=16;
     if (gpJoueur->hasObjet(O_ENCYCL)) {
-        if (ligne >= 64) gpJeu->affiche(image, "See defeated monsters: M", 24, ligne); 
+        if (ligne >= 64) gpJeu->affiche(image, "View defeated monsters: L and B", 24, ligne); 
         ligne+=16;}
     if (gpJoueur->hasObjet(O_POISSONS)) {
-        if (ligne >= 64) gpJeu->affiche(image, "See fishes : L", 24, ligne); 
+        if (ligne >= 64) gpJeu->affiche(image, "View fishes : L and B", 24, ligne); 
         ligne+=16;}
     if (gpJoueur->hasObjet(O_SAC_TROC)) {
-        if (ligne >= 64) gpJeu->affiche(image, "See barter items : I", 24, ligne); 
+        if (ligne >= 64) gpJeu->affiche(image, "View barter items : L and B", 24, ligne); 
         ligne+=16;}
     if (gpJoueur->hasObjet(O_MASQUE)) {
-        if (ligne >= 64) gpJeu->affiche(image, "Oni Link transformation : O", 24, ligne); 
+        if (ligne >= 64) gpJeu->affiche(image, "Oni Link transformation : L and X", 24, ligne); 
         ligne+=16;}
     if (ligne >= 176) {
         gpJeu->affiche(image, "HELP 2/3", 40, 16); 
-        gpJeu->affiche(image, "Return to the game: Enter - Next: Right", 24, 208);
+        gpJeu->affiche(image, "Return to the game: A - Next: Right", 24, 208);
         return;}
     if (ligne >= 64) 
-    gpJeu->affiche(image, "Look around: Ctrl and direction", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Look around: L and direction", 24, ligne); ligne+=16;
     if (ligne >= 176) {
         gpJeu->affiche(image, "HELP 2/3", 40, 16); 
-        gpJeu->affiche(image, "Return to the game: Enter - Next: Right", 24, 208);
+        gpJeu->affiche(image, "Return to the game: A - Next: Right", 24, 208);
         return;}
     if (ligne >= 64) 
-    gpJeu->affiche(image, "Enlarge / Shrink: Ctrl and Enter", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Enlarge / Shrink: L and A", 24, ligne); ligne+=16;
     if (ligne >= 176) {
         gpJeu->affiche(image, "HELP 2/3", 40, 16); 
-        gpJeu->affiche(image, "Return to the game: Enter - Next: Right", 24, 208);
+        gpJeu->affiche(image, "Return to the game: A - Next: Right", 24, 208);
         return;}
     if (ligne >= 64) 
-    gpJeu->affiche(image, "Save / Quit: Esc", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Save / Quit: SELECT", 24, ligne); ligne+=16;
     
     gpJeu->affiche(image, "HELP 2/2", 40, 16);
-    gpJeu->affiche(image, "Return to the game: Enter - Previous: Left", 24, 208);
+    gpJeu->affiche(image, "Return to the game: A - Previous: Left", 24, 208);
 }
 
 bool Generique::initAide3() {

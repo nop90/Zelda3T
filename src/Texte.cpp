@@ -91,7 +91,7 @@ void Texte::chercheText() {
         case 43 : texte = "..."; idsuiv=44; break;
         case 44 : texte = "The castle. To the east, don't tell me you've forgotten?"; break;
         case 45 : texte = "Hem Hem..."; idsuiv=46; break;
-        case 46 : texte = "TUTORIAL : Press Space near someone to talk with him, or near a sign to read it."; break;
+        case 46 : texte = "TUTORIAL : Press A near someone to talk with him, or near a sign to read it."; break;
         case 47 : texte = "You didn't learn any song.";
             if (gpJeu->getJoueur()->hasMelodie(0)) {id=48; chercheText();break;}
             if (gpJeu->getJoueur()->hasMelodie(1)) {id=57; chercheText();break;}
@@ -552,7 +552,7 @@ void Texte::chercheText() {
             || gpJeu->getJoueur()->getTroc(M_PARFUM)<1) idsuiv=75;
             break;
         case 266 : texte = "The Pegasus boots for a tapestry and a perfume? *              yes              NO ?"; idsuiv=76; break;
-        case 267 : texte = "You got the Pegasus boots! *Hold Shift or press Capslock to run!"; break;
+        case 267 : texte = "You got the Pegasus boots! *Hold R to run!"; break;
         case 268 : 
             texte = "A perfume for 3 feathers and 4 bags of rice? **              YES ?            no  "; 
             if (gpJeu->getJoueur()->getTroc(M_PLUME)<3
@@ -639,7 +639,7 @@ void Texte::chercheText() {
         case 313 : texte = "You traded the little bell for an axe!"; break;
         case 314 : texte = "Ho! Ho! Ho!"; buffer="That's all very well, but how do I go home?"; break;
         case 315 : texte = "TUTORIAL :*A hit on one of these colored sphere switch the stumbling blocks."; break;
-        case 316 : texte = "You have found a sword!!!*Use it with the key Z (or W), or keep Z (or W) holded to charge a spin attack!"; break;
+        case 316 : texte = "You have found a sword!!!*Use it with the key B, or keep B holded to charge a spin attack!"; break;
         case 317 : texte = "TUTORIAL :*Falling in a hole will bring you at the floor below. However, if there is no floor below like here, a fall will make you lose life and will bring at the entry of the area, so be careful!"; break;
         case 318 : texte = "TUTORIAL :*During the game, you might see some spots apparently inaccessible, like the platform underneath. You will then have"; buffer="to come back later with more equipment to reach it."; break;
         case 319 : texte = "@+@+@+@+@+@+@@@+*@=++=@=+@=+@=+=@*+@+@+@+=+="; break;
@@ -874,7 +874,7 @@ void Texte::chercheText() {
         case 440 : texte = "I could fix the lever, but I need a replacement part, and I can't leave my post..."; idsuiv=441; break;
         case 441 : texte = "I need a cogwheel, they can be found at the marketplace of Hyrule City."; idsuiv=442; break;
         case 442 : texte = "You know how it works, don't you? Each stallholder offers some products for others, you've got to gather what they want in order to get what you want."; idsuiv=443; break;
-        case 443 : texte = "I will give you the merchandises I already have.*If you want to see what you have in you bag, press I."; break;
+        case 443 : texte = "I will give you the merchandises I already have.*If you want to see what you have in you bag, press L and B."; break;
         case 444 : 
             if (gpJeu->getJoueur()->getTroc(M_ROUAGE)==0) {id=446; chercheText();break;}
             if (gpJeu->getJoueur()->getTroc(M_ROUAGE)>0) {id=445; chercheText();break;}
@@ -1914,7 +1914,7 @@ void Texte::chercheText() {
             texte = "The Princess instructed you with investigating the Ocarina theft? *In that case you can go. There is nothing left to steal anyway..."; break;
         case 1023: texte = "I was guarding this door last night. I am absolutely sure no one came through it..."; break;
         case 1024: texte = "That's where the Ocarina was kept. The guard heard a big noise. But before he realized it was coming from inside the room, the safe had been cleared out."; idsuiv=1025; break;
-        case 1025: texte = "If you see anything suspicious, go in front of it and press SPACE to point it out to me."; break;
+        case 1025: texte = "If you see anything suspicious, go in front of it and press A to point it out to me."; break;
         case 1026: texte = "It's a torch... What were you expecting for? A ceiling chandelier?"; break;
         case 1027: texte = "This safe is the one in which the Ocarina was kept. Until last night..."; break;
         case 1028: 
