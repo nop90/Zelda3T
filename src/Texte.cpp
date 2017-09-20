@@ -777,7 +777,7 @@ void Texte::chercheText() {
         case 387 : texte = "The detector for 20 power gems, ok?**              YES ?            no  ";
             if (gpJeu->getJoueur()->getGemme()<20) idsuiv=385; break;
         case 388 : texte = "The detector for 20 power gems, ok?**              yes              NO ?"; break;
-        case 389 : texte = "You got the detector!*When you press enter, the number of gems in you possession is written in green if you have all the gems of the area."; break;
+        case 389 : texte = "You got the detector!*When you press L and START, the number of gems in you possession is written in green if you have all the gems of the area."; break;
         case 390 : 
             if (gpJeu->getJoueur()->hasBouteille(0)) {id=393; chercheText(); break;}
             texte = "An empty bottle for 10 power gems?**              YES ?            no  ";
@@ -874,7 +874,7 @@ void Texte::chercheText() {
         case 440 : texte = "I could fix the lever, but I need a replacement part, and I can't leave my post..."; idsuiv=441; break;
         case 441 : texte = "I need a cogwheel, they can be found at the marketplace of Hyrule City."; idsuiv=442; break;
         case 442 : texte = "You know how it works, don't you? Each stallholder offers some products for others, you've got to gather what they want in order to get what you want."; idsuiv=443; break;
-        case 443 : texte = "I will give you the merchandises I already have.*If you want to see what you have in you bag, press L and B."; break;
+        case 443 : texte = "I will give you the merchandises I already have.*If you want to see what you have in you bag, press L and B (Press L and B again to change list)."; break;
         case 444 : 
             if (gpJeu->getJoueur()->getTroc(M_ROUAGE)==0) {id=446; chercheText();break;}
             if (gpJeu->getJoueur()->getTroc(M_ROUAGE)>0) {id=445; chercheText();break;}
@@ -932,7 +932,7 @@ void Texte::chercheText() {
         case 474 : texte = "Don't tell me you want to participate for free???*               yeah            NO ?"; idsuiv=476; break;
         case 475 : texte = "...*Here is a fishing rod, come back when you've caught 5 different types of fish."; break;
         case 476 : texte = "Go away, enemy of fishermen!"; break;
-        case 477 : texte = "You got a fishing rod!*Use it on a pontoon, then bring the fish up pressing X when the line is moving."; break;
+        case 477 : texte = "You got a fishing rod!*Use it on a pontoon, then bring the fish up pressing Y when the line is moving."; break;
         case 478 : 
             if (gpJeu->getJoueur()->hasObjet(O_POISSONS)) {id=487; chercheText();break;}
             if (gpJeu->getJoueur()->nbPoissons()>=5) {id=479; chercheText();break;}
@@ -945,7 +945,7 @@ void Texte::chercheText() {
         case 481 : texte = "I guess you want your price now...*Well, as a reward for your victory in the fishing contest: *... ... ..."; idsuiv=482; break;
         case 482 : texte = "I hire you!"; idsuiv=483; break;
         case 483 : texte = "There are a lot of other types of fish in Hyrule, I want to list them all by area."; idsuiv=484; break;
-        case 484 : texte = "I will reward you each time you bring me 5 new types of fish.*From now on you can consult the list pressing L."; idsuiv=485; break;
+        case 484 : texte = "I will reward you each time you bring me 5 new types of fish.*From now on you can consult the list pressing L and B (Press L and B again to change list)."; idsuiv=485; break;
         case 485 : texte = "With your current fishing rod, you will unfortunately be able to catch only little fish..."; break;
         case 486 : texte = "Be sure to go fishing every where!*Each fish caught give you some energy, did you notice?"; break;
         case 487 :
@@ -1153,7 +1153,7 @@ void Texte::chercheText() {
             if (gpJeu->getJoueur()->hasObjet(O_ENCYCL)) {id=593; chercheText();break;}
             texte = "Hello Link, do you remember me?"; idsuiv=590; break;
         case 590 : texte = "Monsters appeared in Hyrule today, so once again I'll try to list them all, and once again I count on your help."; idsuiv=591; break;
-        case 591 : texte = "Pressing M, you can see the monsters already listed. You just have to kill a monster to add it."; idsuiv=592; break;
+        case 591 : texte = "Pressing L and B, you can see the monsters already listed (Press L and B again to change list). You just have to kill a monster to add it."; idsuiv=592; break;
         case 592 : 
             switch (gpJeu->getEpoque()) {
                 case T_PASSE : os<<"10 Gold Coins"; break;
@@ -1809,7 +1809,7 @@ void Texte::chercheText() {
         case 944 : texte = "You found the Boss Key!!!**Use it to open his haunt."; break;
         case 945 : texte = "You found a little key.**Use it to unlock a door."; break;
         case 946 : texte = "You found a new heart!!! **Your amount of life increases by one heart!!!"; break;
-        case 947 : texte = "You found a bow!!!**Equip it by pressing entry then use it with X to attack from a distance!"; break;
+        case 947 : texte = "You found a bow!!!**Equip it selecting the bow from inventory then use it with Y to attack from a distance!"; break;
         case 948 : 
             if (gpJeu->getZone()==47) {id=949; chercheText();break;}
             if (gpJeu->getZone()==48) {id=950; chercheText();break;}

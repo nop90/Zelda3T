@@ -36,6 +36,13 @@ menu(false), text(false), vueHorz(0), vueVert(0) {
 	dark= IMG_Load("romfs:/images/logos/fin.png");
 	SDL_SetAlpha(dark, SDL_SRCALPHA, 128);
 
+    gpProjectileOld = NULL;
+    gpObjetOld = NULL;
+    gpSnipeOld = NULL;
+    gpCaisseOld = NULL;
+    gpEnnemiOld = NULL;
+    gpPiegeOld = NULL;
+    gpPnjOld = NULL;
 
 }
 
@@ -52,6 +59,15 @@ Jeu::~Jeu() {
     delete gpEnnemi;
     delete gpPiege;
     delete gpPnj;
+
+    if(gpProjectileOld) delete gpProjectileOld;
+    if(gpObjetOld) delete gpObjetOld;
+    if(gpSnipeOld) delete gpSnipeOld;
+    if(gpCaisseOld) delete gpCaisseOld;
+    if(gpEnnemiOld) delete gpEnnemiOld;
+    if(gpPiegeOld) delete gpPiegeOld;
+    if(gpPnjOld) delete gpPnjOld;
+
 	SDL_FreeSurface(imageObjets);
 	SDL_FreeSurface(dark);
 }
@@ -130,6 +146,14 @@ void Jeu::reinit(int save) {
     gpStatut = new Statut(this);
     //gpAudio->playMusic(zone);
     
+    if(gpProjectileOld) delete gpProjectileOld;
+    if(gpObjetOld) delete gpObjetOld;
+    if(gpSnipeOld) delete gpSnipeOld;
+    if(gpCaisseOld) delete gpCaisseOld;
+    if(gpEnnemiOld) delete gpEnnemiOld;
+    if(gpPiegeOld) delete gpPiegeOld;
+    if(gpPnjOld) delete gpPnjOld;
+
     gpProjectileOld = NULL;
     gpObjetOld = NULL;
     gpSnipeOld = NULL;

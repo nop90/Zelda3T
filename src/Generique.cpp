@@ -502,7 +502,7 @@ void Generique::initAide1() {
         if (ligne < 176) gpJeu->affiche(image, "VIew fishes : L and B", 24, ligne); 
         ligne+=16;}
     if (gpJoueur->hasObjet(O_SAC_TROC)) {
-        if (ligne < 176) gpJeu->affiche(image, "See barter items : L and B", 24, ligne); 
+        if (ligne < 176) gpJeu->affiche(image, "View barter items : L and B", 24, ligne); 
         ligne+=16;}
     if (gpJoueur->hasObjet(O_MASQUE)) {
         if (ligne < 176) gpJeu->affiche(image, "Oni Link transformation : L and X", 24, ligne); 

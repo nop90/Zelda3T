@@ -21,7 +21,7 @@ Poissons::~Poissons() {
 }
 
 void Poissons::draw(SDL_Surface* gpScreen) {
-    SDL_Rect dst; dst.x = 0; dst.y = 0;
+    SDL_Rect dst; dst.x = 0; dst.y = 240;
     SDL_BlitSurface(image, NULL, gpScreen, &dst);
 }
 

@@ -26,7 +26,7 @@ Encyclopedie::~Encyclopedie() {
 }
 
 void Encyclopedie::draw(SDL_Surface* gpScreen) {
-    SDL_Rect dst; dst.x = 0; dst.y = 0;
+    SDL_Rect dst; dst.x = 0; dst.y = 240;
     SDL_BlitSurface(image, NULL, gpScreen, &dst);
 }
 
@@ -73,14 +73,14 @@ void Encyclopedie::fond() {
     
     placeCadres();
     
-    gpJeu->setStop(true);
+//    gpJeu->setStop(true);
     gpEnnemi->draw(image);
     if (page == 11) {
         gpPnj->setX(gpJeu->getPhg(0)+128+8+((48-16)/2));
         gpPnj->setY(gpJeu->getPhg(1)+112-16+((48-23)/2));
         gpPnj->draw(image);
     }
-    gpJeu->setStop(false);
+//    gpJeu->setStop(false);
     
     delete gpEnnemi;
     gpEnnemi = new Ennemi(gpJeu, 0, 0, 0, true);
