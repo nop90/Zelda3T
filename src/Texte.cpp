@@ -648,7 +648,7 @@ void Texte::chercheText() {
         case 322 : texte = "At the dawn of cataclysm, shall the heroe find this stele. The Pendents of Courage, Wisdom and Power in his possession, his only chance to save the world will arise."; break;
         case 323 : texte = "..."; buffer="I'm afraid we'll have to forget about the ocarina for a moment...*If this stele says the truth, you have to gather the 3 pendents as soon as possible..."; idsuiv=324; break;
         case 324 : texte = "They are hidden in 3 temples, the nearest is a tower by the waterfalls, north of here... Take this map, it will help you find your way!"; break;
-        case 325 : texte = "You got the map of Hyrule!**Press P outdoors to see it."; break;
+        case 325 : texte = "You got the map of Hyrule!**Press START outdoors to see it."; break;
         case 326 : 
             if (!gpJeu->getJoueur()->hasMedaillon(0)) {texte = "The first pendent is in a tower North of this forest. Leave the forest by the West and head North to arrive in the waterfalls area."; break;}
             if (!gpJeu->getJoueur()->hasMedaillon(1)) {texte = "The second pendent is in the temple in the middle of the Lake. You should rent a boat at the Mabe village..."; break;}
@@ -1804,7 +1804,7 @@ void Texte::chercheText() {
         case 940 : texte = "            Second Quest - Level 2 :                                                                            Tower of Gem"; break;
         case 941 : texte = "          Second Quest - Final Level :                                                                        Final Destination"; break;
         
-        case 942 : texte = "You found the map!!!**Press P to see the dungeon map."; break;
+        case 942 : texte = "You found the map!!!**Press START to see the dungeon map."; break;
         case 943 : texte = "You found the compass!!!**The Boss and chests are now indicated on the map."; break;
         case 944 : texte = "You found the Boss Key!!!**Use it to open his haunt."; break;
         case 945 : texte = "You found a little key.**Use it to unlock a door."; break;
