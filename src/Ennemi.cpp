@@ -24,7 +24,7 @@ id(type), vanim(120), vinvin(3), vol(0), nage(0), spectre(0), porte(0), typeIA(I
 vitesse(1), force(0), recul(16), glace(0), maxglace(60), typeEnn(E_SIMPLE), 
 zonesAttaques(NULL), zonesVulnerables(NULL), chargeIm(false), arme(false),
 special1(0), special2(0), persistent(p), type_att(ENNEMI), dist(16) {
-    if (id) {
+	if (id) {
         Ennemi* gpEnnemi = gpJeu->existEnnemi(id);
         if (gpEnnemi != NULL) {
             image = gpEnnemi->image;
