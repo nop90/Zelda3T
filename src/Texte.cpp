@@ -1925,8 +1925,8 @@ void Texte::chercheText() {
         case 1031: texte = "So that's where the thief came from! *What are you waiting for? Go after him!"; break;
         case 1032: texte = "I feel forgotten... *Here I am, guarding a safety vault empty and wide open..."; break;
         case 1033: texte = "The thief is probably in this forest, you can't give up now!"; break;
-        case 1034: texte = "TUTORIAL : Press C in front of a light object like a jar in order to lift it up. Press a second time to throw it."; break;
-        case 1035: texte = "TUTORIAL : Press SPACE in front of a chest to open it. You can open a chest only if you are down it."; break;
+        case 1034: texte = "TUTORIAL : Press X in front of a light object like a jar in order to lift it up. Press a second time to throw it."; break;
+        case 1035: texte = "TUTORIAL : Press A in front of a chest to open it. You can open a chest only if you are down it."; break;
         case 1036: texte = "                 Hyrule Castle"; break;
         case 1037: texte = "This way leads to the prison cells, you have nothing to do there."; break;
         case 1038: texte = "This way leads to a very high safety zone. Even the Hero of Hyrule is not allowed to go in."; break;
@@ -2432,13 +2432,13 @@ void Texte::chercheText() {
         case 1358: texte = "So tell me Link, what are you gonna do of your days off?"; break;
         case 1359: texte = "Hyrule was saved and every threat dispeled. After long adventures, the three heroes had accomplished their destiny. **The three Goddesses came back in Hyrule to congratulate them, and then left again, taking the Triforce with them. **The powerful Ganondorf became quickly the new chief of the guards and spent the rest of his days protecting the realm against enemies that never came."; idsuiv=1360; break;
         case 1360: texte = "Princess Zelda was celebrated accross the entire country and far more away as being the sovereign that had brought peace on the world. **Link prefered to fly away from celebrity, he disappeared, and no one ever saw him in Hyrule again."; break;
-        case 1361: texte = "After the events that occured in Termina, Princesse Zelda put an end to Link's exil, announcing to the people the victory of the hero on his evil alter-ego."; idsuiv=1362; break;
+        case 1361: texte = "After the events that occured in Termina, Princess Zelda put an end to Link's exile, announcing to the people the victory of the hero on his evil alter-ego."; idsuiv=1362; break;
         case 1362: texte = "But the Hylian knight, unable to accept his status of hero, left to live as an ermit in a forest given to him by the princess."; idsuiv=1363; break;
         case 1363: texte = "The existence of Termina had to be kept secret, therefore the princess hid the events that took place there and let the people living in an illusory peace."; idsuiv=1364; break;
         case 1364: texte = "But both of them perfectly knew that, from the bottom of hell, Ganon the immortal drawed his power from his"; buffer="first wish to the Triforce, and rounded up his army with a view to invade Hyrule."; idsuiv=1365; break;
         case 1365: texte = "Until the day when, after months spent watching out for an attack, an event came up and put an end to this endless waiting..."; break;
         case 1366: texte = "HELLOOO !!! *MY LORD LINK !!!"; break;
-        case 1367: texte = "HELP : Press F1 to consult the help."; break;
+        case 1367: texte = "HELP : Press L and Y to consult the help."; break;
         case 1368: texte = "Come back when you'll have a wallet and we'll talk business."; break;
         case 1369: texte = "We heard sounds of battle, and nothing more..."; break;
         case 1370: texte = "What, by all heavens, can have happened?"; break;

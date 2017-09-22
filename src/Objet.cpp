@@ -126,13 +126,17 @@ void Objet::draw(SDL_Surface* gpScreen) {
     }
     
     if (suivant != NULL) 
-        if (((Objet*)suivant)->vie == 0) enleve(suivant);
+        if (((Objet*)suivant)->vie == 0) 
+//			enleve(suivant); //nop90 : problem
+			delete (Objet*) enleve(suivant); 
     if (suivant != NULL) ((Objet*)suivant)->draw(gpScreen);
 }
 
 void Objet::revie() {
     if (suivant != NULL) 
-        if (((Objet*)suivant)->persist == 0) enleve(suivant);
+        if (((Objet*)suivant)->persist == 0) 
+//			enleve(suivant); //nop90 : problem
+			delete (Objet*) enleve(suivant); 
     if (suivant != NULL) ((Objet*)suivant)->revie();
 }
 

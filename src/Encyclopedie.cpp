@@ -15,7 +15,7 @@ Encyclopedie::Encyclopedie(Jeu* jeu) : gpJeu(jeu), page(0), gpEnnemi(0), gpPnj(0
     imageCadre = IMG_Load("romfs:/images/logos/cadres.png");
     gpEnnemi = new Ennemi(gpJeu, 0, 0, 0, true);
     gpPnj = new Pnj(gpJeu, 8, gpJeu->getPhg(0)+128+8+((48-16)/2), 
-        gpJeu->getPhg(1)+112-16+((48-23)/2), 0);
+    gpJeu->getPhg(1)+112-16+((48-23)/2), 0);
 }
 
 Encyclopedie::~Encyclopedie() {

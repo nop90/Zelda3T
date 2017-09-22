@@ -158,7 +158,10 @@ void Snipe::draw(SDL_Surface* gpScreen) {
     
     
     
-    if (suivant != NULL) if (((Snipe*)suivant)->vie == 0) enleve(suivant);
+    if (suivant != NULL) 
+		if (((Snipe*)suivant)->vie == 0) 
+//			enleve(suivant); //nop90 : problem
+			delete (Snipe*) enleve(suivant);
     if (suivant != NULL) ((Snipe*)suivant)->draw(gpScreen);
 }
 

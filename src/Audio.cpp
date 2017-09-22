@@ -18,7 +18,7 @@
 
 Audio::Audio() : volume(0), musiqueId(0), specialId(0) {
 	SDL_InitSubSystem(SDL_INIT_AUDIO);
-    SOUND = Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 1, 1024)?0:1;
+    SOUND = Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 1, 1024)?0:1;
     music = NULL;
     
     if (SOUND) {
@@ -226,12 +226,12 @@ Mix_Music* Audio::choixMusique(int id) {
 void Audio::playSpecial(int id) {
     if (SOUND) {
         if (specialId != id) {
-                Mix_HaltMusic();
-                Mix_FreeMusic(music);
+            Mix_HaltMusic();
+            Mix_FreeMusic(music);
             music = choixSpecial(id);
             if (previous_volume == -1) previous_volume = volume;
-                Mix_VolumeMusic( volume);
-                Mix_PlayMusic(music,-1);
+            Mix_VolumeMusic( volume);
+            Mix_PlayMusic(music,-1);
             specialId=id;
         }    
     }

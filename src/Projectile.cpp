@@ -169,7 +169,10 @@ void Projectile::draw(SDL_Surface* gpScreen) {
     
     
     
-    if (suivant != NULL) if (((Projectile*)suivant)->vie == 0) enleve(suivant);
+    if (suivant != NULL) 
+		if (((Projectile*)suivant)->vie == 0) 
+//			enleve(suivant); //nop90 : problem
+			delete (Projectile*) enleve(suivant); 
     if (suivant != NULL) ((Projectile*)suivant)->draw(gpScreen);
 }
 

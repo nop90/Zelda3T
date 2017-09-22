@@ -708,7 +708,11 @@ bool Jeu::finTexte(int id) {
             pnj = gpPnj->getSuivant();
             while (pnj != NULL) {
                 if (pnj->getId() == 7) {
-                    gpPnj->enleve(pnj); ajoutePnj(53,32*16+8,30*16+5,126); break;}
+//						gpPnj->enleve(pnj); //nop90 : problem 
+						delete (Pnj*) gpPnj->enleve(pnj);
+						ajoutePnj(53,32*16+8,30*16+5,126); 
+						break;
+					} 
                 pnj = pnj->getSuivant();
             }
             gpJoueur->setTroc(M_ROUE,gpJoueur->getTroc(M_ROUE)-1);

@@ -511,7 +511,7 @@ void Joueur::draw(SDL_Surface* gpScreen) {
         if (charge && charge < 21  && typeanim != EPEE) charge++;
         if (charge == 20) gpJeu->getAudio()->playSound(23);
         if (typeanim == SPIN && anim == 10) gpJeu->getAudio()->playSound(24);
-        if (typeanim == SOULEVE && anim == 4) porte = gpJeu->enleve();
+        if (typeanim == SOULEVE && anim == 4) porte = gpJeu->enleve(); 
         if (typeanim == BOIRE && anim == 6) boit();
         if (pousse) pousse++;
         if (pousse == 10) {setTypeAnim(POUSSE);}

@@ -17,7 +17,8 @@ class Listable {
         ~Listable();
         int size();
         void ajout(Listable* l); // ajout d'un élément seul
-        void enleve(Listable* l); //enlève et libère l'élément
+//        void enleve(Listable* l); //enlève et libère l'élément
+		Listable* enleve(Listable* l); 
         void setSuivant(Listable* l);
         bool operator==(const Listable* l); // compare les id
         int getListId();
