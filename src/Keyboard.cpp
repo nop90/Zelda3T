@@ -107,6 +107,26 @@ int Keyboard::gererClavier() {
             case SDL_KEYDOWN :
                 if (pollKey(event) == -1) return -1;
                 break;
+            case SDL_MOUSEBUTTONDOWN :
+            //touchscreeen object selection
+				if (gpJeu->getJoueur() && (gpJeu->getMenu() || !gpJeu->getStop())) {
+					int sx=-1;
+					int sy=-1;
+					if (event.button.x>=32 && event.button.x<160) {
+						if (event.button.x>=128) sx=3;
+						else if (event.button.x>=96) sx=2;
+						else if (event.button.x>=64) sx=1;
+						else sx=0;
+					}
+					if (event.button.y>=32+240 && event.button.y<160+240) {
+						if (event.button.y>=128+240) sy=3;
+						else if (event.button.y>=96+240) sy=2;
+						else if (event.button.y>=64+240) sy=1;
+						else sy=0;
+					}
+					if (sx>-1 && sy>-1) gpJeu->getJoueur()->setObjet(sx+sy*4);
+				}
+                break;
         }
     }
     keys = SDL_GetKeyState(NULL);
