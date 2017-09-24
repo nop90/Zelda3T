@@ -109,7 +109,9 @@ int Keyboard::gererClavier() {
                 break;
             case SDL_MOUSEBUTTONDOWN :
             //touchscreeen object selection
-				if (gpJeu->getJoueur() && (gpJeu->getMenu() || !gpJeu->getStop())) {
+				if (gpJeu->getJoueur() && (gpJeu->getMenu() || !gpJeu->getStop()) && !gpJeu->getJoueur()->getOni() &&
+						(gpJeu->getJoueur()->getTypeAnim()<4 || gpJeu->getJoueur()->getTypeAnim()==NAGE || gpJeu->getJoueur()->getTypeAnim()==FLOTTE ||
+						(gpJeu->getJoueur()->getTypeAnim()>20 && gpJeu->getJoueur()->getTypeAnim()<25))) {
 					int sx=-1;
 					int sy=-1;
 					if (event.button.x>=32 && event.button.x<160) {
