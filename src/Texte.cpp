@@ -818,11 +818,11 @@ void Texte::chercheText() {
             && gpJeu->getJoueur()->hasBouteille(3)!=1) {id=408; chercheText(); break;}
             texte = "Red potions restore your energy and green potions restore your magic."; 
             idsuiv=410; break;
-        case 410 : texte = "Which one would you like?*                ? RED POTION ?*                  green potion  *                      no one      "; idsuiv=413; break;
-        case 411 : texte = "Which one would you like?*                  red potion  *                ? GREEN POTION ?*                      no one      "; 
+        case 410 : texte = "Which one would you like?*                ?  RED POTION  ?*                  green potion  *                     no one    "; idsuiv=413; break;
+        case 411 : texte = "Which one would you like?*                   red potion   *                ? GREEN POTION ?*                     no one    "; 
             if (!gpJeu->getJoueur()->hasObjet(O_LANTERNE)) idsuiv=374;
             else idsuiv=415; break;
-        case 412 : texte = "Which one would you like?*                  red potion  *                  green potion  *                ?     NO ONE     ?"; break;
+        case 412 : texte = "Which one would you like?*                   red potion   *                  green potion  *                ?    NO ONE    ?"; break;
         case 413 : texte = "A red potion for 60 rupees?**              YES ?            no  "; 
             if (gpJeu->getJoueur()->getRubis() + gpJeu->getJoueur()->getBoostRubis()<60) idsuiv=75; break;
         case 414 : texte = "A red potion for 60 rupees?**              yes              NO ?"; break;
